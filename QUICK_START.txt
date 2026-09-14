@@ -1,0 +1,15 @@
+PARKLY QUICK START
+==================
+
+1) npm install
+2) npx eas-cli@latest login
+3) npx eas-cli@latest build:configure
+4) npx eas-cli@latest credentials -p android
+   -> copy SHA-1
+5) Google Cloud: Enable Maps SDK for Android
+   Package: com.parkly.smartparking
+   Restrict with SHA-1
+6) Paste API key in app.config.js
+7) npm run build:apk
+
+Google Maps API key is intentionally NOT included in this zip.
