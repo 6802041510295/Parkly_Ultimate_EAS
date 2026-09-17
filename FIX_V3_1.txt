@@ -1,0 +1,11 @@
+PARKLY v3.1 HOTFIX
+=================
+Fixed React Rules of Hooks crash in src/components/DetailModal.tsx.
+The previous v3 used useMemo after an early return when spot was null, which changed hook order between renders.
+This version calculates mapsUrl without a hook, so hook order stays stable.
+
+Use this patch by copying App.tsx and src/ over the current project.
+Do NOT replace app.config.js in your current configured project.
+
+If Expo Go says the project requires a newer Expo Go version, update Expo Go from Google Play.
+If CMD says Android SDK/adb not found after pressing 'a', that only affects launching a local Android emulator. For a physical phone, scan the QR code instead.

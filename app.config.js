@@ -1,4 +1,4 @@
-const GOOGLE_MAPS_API_KEY = 'AIzaSyBAOZhiZw6yTVQTlbxBLxfV1mzZaqelAXg';
+const GOOGLE_MAPS_API_KEY = '';
 
 module.exports = {
   expo: {

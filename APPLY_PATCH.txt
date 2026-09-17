@@ -1,0 +1,26 @@
+PARKLY v3 SOURCE PATCH
+======================
+
+This patch is for your CURRENT Parkly project that already has:
+- Google Maps API key in app.config.js
+- EAS project ID
+- EAS Android keystore / SHA-1 configured in Google Cloud
+
+DO THIS:
+1. Close Expo/Metro if it is running (Ctrl+C).
+2. Copy App.tsx from this patch over your current App.tsx.
+3. Copy the src folder from this patch over your current src folder (replace files when asked).
+4. In CMD inside your current project run:
+
+   npx expo install react-native-safe-area-context
+   npx expo-doctor
+   npx expo start -c
+
+5. Test favorites, Back button, Map filters, and bottom navigation on the phone.
+6. When ready, build with your SAME existing keystore:
+
+   npx eas-cli@latest build -p android --profile preview
+
+IMPORTANT:
+- Do NOT replace your current app.config.js, so your API key stays intact.
+- Do NOT create a new EAS keystore. Your Google Cloud restriction is tied to the current SHA-1.

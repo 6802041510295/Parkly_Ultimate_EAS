@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as Location from 'expo-location';
 import { Coordinate } from '../types';
-import { DEMO_CENTER } from '../data/parkingData';
+import { PARKING_CENTER } from '../data/parkingData';
 
 export function useUserLocation() {
-  const [coordinate, setCoordinate] = useState<Coordinate>(DEMO_CENTER);
-  const [address, setAddress] = useState('KMUTNB demo center');
+  const [coordinate, setCoordinate] = useState<Coordinate>(PARKING_CENTER);
+  const [address, setAddress] = useState('KMUTNB area');
   const [loading, setLoading] = useState(true);
   const [usingFallback, setUsingFallback] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -17,14 +17,14 @@ export function useUserLocation() {
       const permission = await Location.requestForegroundPermissionsAsync();
       if (permission.status !== 'granted') {
         setUsingFallback(true);
-        setCoordinate(DEMO_CENTER);
-        setAddress('Location permission denied — using KMUTNB demo center');
-        setError('Location permission was not granted. The app is still usable with demo coordinates.');
+        setCoordinate(PARKING_CENTER);
+        setAddress('KMUTNB area');
+        setError('Location permission is off. Enable it in App settings to use live GPS distance.');
         return;
       }
 
       const result = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.Balanced,
+        accuracy: Location.Accuracy.High,
       });
       const next = { latitude: result.coords.latitude, longitude: result.coords.longitude };
       setCoordinate(next);
@@ -42,9 +42,9 @@ export function useUserLocation() {
       }
     } catch {
       setUsingFallback(true);
-      setCoordinate(DEMO_CENTER);
-      setAddress('KMUTNB demo center');
-      setError('Could not read GPS. Using demo coordinates instead.');
+      setCoordinate(PARKING_CENTER);
+      setAddress('KMUTNB area');
+      setError('Could not read GPS right now. Parkly is using the default map center.');
     } finally {
       setLoading(false);
     }
