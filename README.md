@@ -1,5 +1,7 @@
 [READ ME.txt](https://github.com/user-attachments/files/32326691/READ.ME.txt)
 # Project Information
+Chayanis Nusati
+Suwimol Tongkom
 
 ## Technologies Used
 
